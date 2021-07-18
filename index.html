@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+<html lang="ru">
+<!-- Developed by Flybizit Dev -->
+
+<head>
+  <meta charset="utf-8" />
+  <!-- <base href="/"> -->
+
+  <title>Baby Daffy</title>
+  <meta name="description" content="" />
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  <!-- Template Basic Images Start -->
+  <meta property="og:image" content="path/to/image.html" />
+  <link rel="icon" href="img/daff.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="img/daff.png" />
+
+  <!-- Template Basic Images End -->
+
+  <!-- Custom Browsers Color Start -->
+  <meta name="theme-color" content="#000" />
+  <!-- Custom Browsers Color End -->
+
+  <link rel="stylesheet" href="css/main.min.css" />
+
+  <!-- Load google font
+	================================================== -->
+  <script type="text/javascript">
+    WebFontConfig = {
+      google: {
+        families: [
+          "Catamaran:300,400,600,700",
+          "Raleway:100,700",
+          "Roboto:700,900",
+        ],
+      },
+    };
+    (function () {
+      var wf = document.createElement("script");
+      wf.src =
+        ("https:" == document.location.protocol ? "https" : "http") +
+        "://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js";
+      wf.type = "text/javascript";
+      wf.async = "true";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(wf, s);
+    })();
+  </script>
+
+  <!-- Load other scripts
+	================================================== -->
+  <script type="text/javascript">
+    var _html = document.documentElement;
+    _html.className = _html.className.replace("no-js", "js");
+  </script>
+  <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+  <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+  <script type="text/javascript">
+    function copy_() {
+      var element = document.getElementById('contract-address');
+
+      element.addEventListener("copy", function (event) {
+        event.preventDefault();
+        if (event.clipboardData) {
+          event.clipboardData.setData("text/plain", '0x382A7A98de520cC08522b3d03CfDFe1926c3F65F');// enter the text here which is copied to clipboard
+          let toast = document.getElementById('contract-popup');
+          toast.style = "display:block;color:lightgreen";
+          setTimeout(() => toast.style = "display:none;", 5000)
+        }
+      });
+      document.execCommand("copy");
+    }
+
+
+  </script>
+
+  <script type="text/javascript">
+    async function loadData() {
+      let btc = await fetch('https://static.coinpaper.io/api/coins/btc-bitcoin.json')
+      btc = await btc.json();
+      btc = btc.markets[0].price;
+      let eth = await fetch('https://static.coinpaper.io/api/coins/eth-ethereum.json');
+      eth = await eth.json();
+      eth = eth.markets[0].price
+      let bnb = await fetch('https://static.coinpaper.io/api/coins/bnb-binance-coin.json');
+      bnb = await bnb.json();
+      //console.log(bnb) ;
+      bnb = bnb.markets[0].price;
+      let btcelement = document.getElementById('btc');
+      let bnbelement = document.getElementById('bnb');
+      let ethelement = document.getElementById('eth');
+      btcelement.innerHTML = Math.round(btc) + ' $'
+      ethelement.innerHTML = Math.round(eth) + ' $'
+      bnbelement.innerHTML = Math.round(bnb) + ' $'
+    }
+  </script>
+  <style>
+    .preloader {
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      background-color: #fff;
+      z-index: 9999;
+    }
+
+    #myVideo {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      min-width: 100%;
+      min-height: 100%;
+    }
+    .top-black-bar {
+  width: 100%;
+  background-color: black;
+  height: 2.5rem;
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  padding-right: 20px;
+  justify-content: flex-end;
+  position: fixed;
+  z-index: 100000;
+}
+.header{
+  margin-top:2.5rem
+}
+@font-face {
+  font-family: "fun";
+  src: url("./f.otf");
+}
+.mob-menu__link {
+  font-family: "fun";
+}
+.social-icons{
+  margin:10px
+}
+.left-image,.right-image{
+height: 100%;
+width: 20%;
+background-size: contain;
+background-repeat: no-repeat;
+display: flex;
+background-position:center;
+align-items: center;
+justify-content: center;
+background-image: url('https://lh3.googleusercontent.com/proxy/q-d-JbZzuoLcITxdtdynB2VFaqoytm1QvEeUiGZl6OXrz65cWapOBzkRglRWrk02JEKC-fVaTLRaynYJZm-jwh10zfzciB_uK88VkL4KvyKyGE0S');
+}
+.count-timer{
+  color:white;
+  font-size: x-large;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+  </style>
+</head>
+
+<body onload="loadData()">
+  <div class="preloader"></div>
+
+  <div class="wrapper">
+    <div class="top-black-bar">
+      <div class="social-icons">
+        😅
+      </div>
+      <div class="social-icons">
+        🤬
+      </div>
+       <div class="social-icons">
+       😬
+      </div>
+      <div class="social-icons">
+        �
+      </div>
+      <div class="social-icons">
+        �
+      </div>
+    </div>
+    <header class="header">
+      <a href="#" class="logo">
+        <div class="logo">
+          <div class="logo__img"></div>
+          <div class="logo__title"><span><b>BABY DAFFY</b></span></div>
+        </div>
+      </a>
+
+      <ul class="menu">
+        <li class="menu__item">
+          <a href="#story" class="menu__link">About</a>
+        </li>
+        <li class="menu__item">
+          <a href="#stat" class="menu__link">Tokenomics</a>
+        </li>
+        <li class="menu__item">
+          <a href="#map" class="menu__link">Roadmap</a>
+        </li>
+        <li class="menu__item">
+          <a href="#story" class="menu__link">Charity</a>
+        </li>
+        <li class="menu__item">
+          <a href="#docs" class="menu__link">Whitepaper</a>
+        </li>
+      </ul>
+
+      <div class="btn-menu">
+        <div class="one"></div>
+        <div class="two"></div>
+        <div class="three"></div>
+      </div>
+    </header>
+
+    <div class="fixed-menu">
+      <div class="fixed-menu__header">
+        <div class="logo">
+          <div class="logo__img"></div>
+          <div class="logo__title"><span><b>BABYDAFFY</b></span></div>
+        </div>
+
+        <div class="btn-close">
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px"
+            y="0px" viewBox="0 0 47.971 47.971" style="enable-background: new 0 0 47.971 47.971" xml:space="preserve"
+            width="512px" height="512px">
+            <path
+              d="M28.228,23.986L47.092,5.122c1.172-1.171,1.172-3.071,0-4.242c-1.172-1.172-3.07-1.172-4.242,0L23.986,19.744L5.121,0.88   c-1.172-1.172-3.07-1.172-4.242,0c-1.172,1.171-1.172,3.071,0,4.242l18.865,18.864L0.879,42.85c-1.172,1.171-1.172,3.071,0,4.242   C1.465,47.677,2.233,47.97,3,47.97s1.535-0.293,2.121-0.879l18.865-18.864L42.85,47.091c0.586,0.586,1.354,0.879,2.121,0.879   s1.535-0.293,2.121-0.879c1.172-1.171,1.172-3.071,0-4.242L28.228,23.986z"
+              fill="#006DF0" />
+          </svg>
+        </div>
+      </div>
+
+      <div class="fixed-menu__content">
+        <ul class="mob-menu">
+
+          <li class="mob-menu__item">
+            <a href="#story" class="mob-menu__link">Story</a>
+          </li>
+          <li class="mob-menu__item">
+            <a href="#stat" class="mob-menu__link">Tokenomics</a>
+          </li>
+          <li class="mob-menu__item">
+            <a href="#map" class="mob-menu__link">Road Map</a>
+          </li>
+          <li class="mob-menu__item">
+            <a href="#scam" class="mob-menu__link">Scam Detector</a>
+          </li>
+          <li class="mob-menu__item">
+            <a href="#docs" class="mob-menu__link">Documents</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  <!-- <video autoplay muted loop id="myVideo" playsinline>
+      <source src="./video/SpaceBG.mp4" type="video/mp4">
+    </video> -->
+    <section class="promo" style="padding-top:100px">
+      <div class="container" style="display:flex;flex-direction:row;margin-top: 5rem;">
+        <div class="right-image"></div>
+        <div class="row"
+          style="display:flex;flex-direction:column;width:100%;align-items:center;margin:0px;justify-content:center">
+        <div class="count-timer">COUNTDOWN TIMER XX:XX:XX</div>
+          <!--   <img src="img/daff.png" data-aos="fade-up" alt=""
+          id="imagefff"
+            style="height:250px;width:250px;margin-bottom: 20px;align-self: center;" /> -->
+          <div class="col-12 promo__content" data-aos="fade-right"
+            style="display:flex;align-items:center;flex-direction:column">
+            <h1><span style="font-size:5rem;font-weight:600">BABYDAFFY</span></h1>
+          
+            <p style="color:white; font-size:large">
+            BABYDAFFY is an open-source peer-to-peer digital currency on the Binance Smart Chain
+that distinguishes itself from other digital currencies in the crypto space through its buy
+back tokenomics and elastic supply burn
+
+
+
+
+
+            </p>
+
+
+            <div class="promo__btns-wrap">
+              <a href="https://bscscan.com/token/0x382a7a98de520cc08522b3d03cfdfe1926c3f65f"
+                class="btn btn--medium btn--orange">View on BSC</a>
+              <a href="https://exchange.pancakeswap.finance/#/swap?inputCurrency=0x382a7a98de520cc08522b3d03cfdfe1926c3f65f"
+                class="btn btn--big btn--blue"><b>Buy on Pancake</b></a>
+                <a href="https://exchange.pancakeswap.finance/#/swap?inputCurrency=0x382a7a98de520cc08522b3d03cfdfe1926c3f65f"
+                  class="btn btn--big btn--pink" style="margin-left: 10px;background-color:pink"><b>Chart</b></a>
+            </div>
+          </div>
+          <div style="margin-left: 20px;">
+            <h3 style="color: white;font-size: medium;"><span id="contract-address" onclick="copy_()">Contract Address
+                0x382A7A98de520cC08522b3d03CfDFe1926c3F65F <br> (click to copy 📋) </span>
+              <span style="display: none;" id="contract-popup">Copied to clipboard!</span>
+            </h3>
+           
+          </div>
+
+        </div>
+          <div class="left-image"></div>
+      </div>
+    </section>
+
+
+    <!--  class removed for now, make sure to add in after video-btn-->
+    <section class="economy" id="story">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 offset-lg-4">
+              <a
+                data-jarallax-element="-40"
+                href="https://www.youtube.com/watch?v=ySt8B6O_E0c"
+                class="economy__video-btn video__btn popup-youtube" 
+              >
+                <img src="img/video-btn.png" alt="" />
+              </a> 
+
+            <div class="economy__block">
+              <div class="economy__block-content">
+                <div class="
+                      section-header
+                      section-header--white
+                      section-header--tire
+                      section-header--small-margin
+                    ">
+                  <h4></h4><br>
+                  <h2>
+                    THE STORY
+                  </h2>
+                </div>
+                <p>
+                  SAFEPLUTO started off as a promising journey. Pluto was on his scheduled way to pluto to meet with
+                  Doge to discuss the
+                  upcoming Binance listing. As soon as they touched ground at a 100 million MC, Doge, filled with greed,
+                  wanted to have it
+                  all for himself and poisoned Pluto. As Pluto was slowly fainting away from the poison, Doge revealed
+                  his real face and
+                  Pluto recognized that all that time it was his friend Bad J hiding behind a mask. Left for dead but
+                  still alive, he woke
+                  up stranded on Pluto, without a ship as Bad J stole the keys to the rocket and flew back to earth. He
+                  felt shocked and
+                  sad, as all the blame was put on him, because Bad J was framing him for stealing his community’s
+                  funds.
+                  Filled with anger, he started to plan his revenge and this is the start of the real redemption story.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <img src="img/video-bg.png" alt="" class="economy__bg" />
+    </section>
+
+
+
+    <!--  <section class="section section--no-pad-bot services" id="services">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <div
+                class="
+                  section-header
+                  section-header--animated
+                  section-header--center
+                  section-header--medium-margin
+                "
+              >
+                <h4>Awesome services</h4>
+                <h2>Why it needs?</h2>
+              </div>
+
+              <div class="services__items">
+                <div class="services__left">
+                  <div data-aos="fade-up" class="service">
+                    <div
+                      class="service__bg"
+                      style="
+                        background-color: #e85f70;
+                        box-shadow: 0 0 51px rgba(232, 95, 112, 0.74);
+                        box-shadow: 0 0 51px rgba(232, 95, 112, 0.74);
+                      "
+                    ></div>
+                    <img src="img/service-icon-1.svg" alt="" />
+                    <div class="service__title">Mining Service</div>
+                  </div>
+                  <div data-aos="fade-up" data-aos-delay="200" class="service">
+                    <div
+                      class="service__bg"
+                      style="
+                        background-color: #fa8936;
+                        background-image: linear-gradient(
+                          -234deg,
+                          #ea9d64 0%,
+                          #fa8936 100%
+                        );
+                        box-shadow: 0 0 51px rgba(250, 137, 54, 0.74);
+                      "
+                    ></div>
+                    <img src="img/service-icon-2.svg" alt="" />
+                    <div class="service__title">Cryptoland App</div>
+                  </div>
+                </div>
+                <div class="services__right">
+                  <div data-aos="fade-up" data-aos-delay="400" class="service">
+                    <div
+                      class="service__bg"
+                      style="
+                        background-image: linear-gradient(
+                          -234deg,
+                          #6ae472 0%,
+                          #4bc253 100%
+                        );
+                        box-shadow: 0 0 51px rgba(75, 194, 83, 0.74);
+                      "
+                    ></div>
+                    <img src="img/service-icon-3.svg" alt="" />
+                    <div class="service__title">Blockchain</div>
+                  </div>
+                  <div data-aos="fade-up" data-aos-delay="600" class="service">
+                    <div
+                      class="service__bg"
+                      style="
+                        background-color: #0090d5;
+                        background-image: linear-gradient(
+                          -234deg,
+                          #29aceb 0%,
+                          #0090d5 100%
+                        );
+                        box-shadow: 0 0 51px rgba(0, 144, 213, 0.74);
+                      "
+                    ></div>
+                    <img src="img/service-icon-4.svg" alt="" />
+                    <div class="service__title">Exchange</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <img src="img/services-bg1.png" alt="" class="services__bg" />
+        <img src="img/services-bg-1.png" class="services__cosmos" alt="" />
+      </section> -->
+
+
+
+    <!--  <section class="partners-logo" id="partners-logo">
+        <div class="container">
+          <div class="row">
+            <div data-aos="fade-up" class="col">
+              <div class="partners-logo__block">
+                <div class="partners-logo__item">
+                  <img src="img/partners-logo-1.png" alt="" />
+                  <p>Escrow</p>
+                </div>
+                <div class="partners-logo__item">
+                  <img src="img/partners-logo-2.png" alt="" />
+                  <p>risk: low</p>
+                </div>
+                <div class="partners-logo__item">
+                  <img src="img/partners-logo-3.png" alt="" />
+                  <ul class="rating">
+                    <li style="background-image: url(img/star-gold.svg)"></li>
+                    <li style="background-image: url(img/star-gold.svg)"></li>
+                    <li style="background-image: url(img/star-gold.svg)"></li>
+                    <li style="background-image: url(img/star-gold.svg)"></li>
+                    <li style="background-image: url(img/star.svg)"></li>
+                  </ul>
+                </div>
+                <div class="partners-logo__item">
+                  <img src="img/partners-logo-4.png" alt="" />
+                  <p>risk: low</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <img
+          src="img/partenrs-bg.png"
+          data-jarallax-element="20"
+          alt=""
+          class="partners-logo__bg"
+        />
+      </section> -->
+
+
+    <section class="data token-data section section--no-pad-bot" id="stat">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="
+	                  section-header
+	                  section-header--animated
+	                  section-header--medium-margin
+	                  section-header--center
+	                ">
+              <h4>Our data</h4>
+              <h2>TOKENOMICS</h2>
+              <div class="bg-title">Token Distribution</div>  
+            </div>
+          </div>
+        </div>
+        <div class="row chart__row align-items-center">
+          <div class="col-lg-6">
+            <div class="chart">
+              <img class="chart__bg" src="img/chart-bg.png" alt="" />
+              <div class="chart__wrap">
+                <canvas id="myChart" width="400" height="400"></canvas>
+              </div>
+            </div>
+          </div>
+          <div data-aos="fade-left" class="col-lg-6 token-data__animated-content">
+            <div class="chart__title">Allocation of funds</div>
+            <p class="chart__text">The Total Token Supply is <br><b>1,000,000,000,000,000</b> tokens.</p>
+            <ul class="chart__legend">
+              <li>
+                <span style="width: 250px"></span>
+                Circulating Suppy (48%)
+              </li>
+              <li>
+                <span style="width: 200px"></span>
+                Initial Burn (31%)
+              </li>
+              <li>
+                <span style="width: 123px"></span>
+                SPACEdrop (14%)
+              </li>
+              <li>
+                <span style="width: 44px"></span>
+                Marketing (2.5%)
+              </li>
+              <li>
+                <span style="width: 38px"></span>
+                Foundation (2%)
+              </li>
+              <li>
+                <span style="width: 22px"></span>
+                Charity (1%)
+              </li>
+              <li>
+                <span style="width: 22px"></span>
+                Bad J’s Karma (1%)
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cases">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="
+                  section-header
+                  section-header--animated
+                  section-header--center
+                  section-header--medium-margin
+                ">
+              <h4>Some facts</h4>
+              <h2>Tokenomics Explained</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col cases__list">
+            <div data-aos="fade-right" class="cases__item">
+              <img src="img/cases-icon-1.png" alt="" class="cases__item-icon" />
+              <div class="cases__item-content">
+                <div class="cases__item-title">Total Token Supply</div>
+                <p class="cases__item-text">
+                  The Total Token Supply of SAVEPLUTO is 1,000,000,000,000,000 tokens
+                </p>
+              </div>
+            </div>
+            <div data-aos="fade-left" data-aos-delay="200" class="cases__item">
+              <img src="img/cases-icon-7.png" alt="" class="cases__item-icon" />
+              <div class="cases__item-content">
+                <div class="cases__item-title">Initial Burn (31%)</div>
+                <p class="cases__item-text">
+                  he Initial Burn is 31% of Total Supply equivalent to 310,000,000,000,000 tokens
+                  The tokens were sent to the following Black Hole Address
+                </p>
+              </div>
+            </div>
+            <div data-aos="fade-right" class="cases__item">
+              <img src="img/cases-icon-8.png" alt="" class="cases__item-icon" />
+              <div class="cases__item-content">
+                <div class="cases__item-title">SPACEdrop (14%)</div>
+                <p class="cases__item-text">
+                  Airdrops are for mortals, but we have been lost in outer space.
+                  Rescuing Pluto and bringing him back into our atmosphere, back to his community.
+                  This process involves sending SAVEPLUTO Tokens to SAFEPLUTO holders
+                </p>
+              </div>
+            </div>
+            <div data-aos="fade-left" data-aos-delay="200" class="cases__item">
+              <img src="img/cases-icon-4.png" alt="" class="cases__item-icon" />
+              <div class="cases__item-content">
+                <div class="cases__item-title">Marketing (2.5%)</div>
+                <p class="cases__item-text">
+                  Allocation of 2.5% of Total Supply equivalent to 25,000,000,000,000 tokens for marketing activities
+                  across social media
+                  channels such as Instagram, Twitter, TikTok, Discord and Telegram
+                </p>
+              </div>
+            </div>
+            <div data-aos="fade-right" class="cases__item">
+              <img src="img/cases-icon-5.png" alt="" class="cases__item-icon" />
+              <div class="cases__item-content">
+                <div class="cases__item-title">Foundation (2%)</div>
+                <p class="cases__item-text">
+                  Allocation of 2% of Total Supply equivalent to 20,000,000,000,000 tokens for the founding community
+                  which is to be time
+                  locked for six months unlocking 10% every 14 day
+                </p>
+              </div>
+            </div>
+            <div data-aos="fade-left" data-aos-delay="200" class="cases__item">
+              <img src="img/cases-icon-9.png" alt="" class="cases__item-icon" />
+              <div class="cases__item-content">
+                <div class="cases__item-title">Charity (1%)</div>
+                <p class="cases__item-text">
+                  Allocation of 1% of Total Supply equivalent to 10,000,000,000,000 tokens for charitable donations
+                </p>
+              </div>
+            </div>
+            <div data-aos="fade-right" class="cases__item">
+              <img src="img/cases-icon-2.png" alt="" class="cases__item-icon" />
+              <div class="cases__item-content">
+                <div class="cases__item-title">Bad J’s Karma (1%)</div>
+                <p class="cases__item-text">
+                  COMING SOON
+                </p>
+              </div>
+            </div>
+            <div data-aos="fade-left" data-aos-delay="200" class="cases__item">
+              <img src="img/cases-icon-3.png" alt="" class="cases__item-icon" />
+              <div class="cases__item-content">
+                <div class="cases__item-title">Smart Contract</div>
+                <p class="cases__item-text">
+                  Aside from an industry-standard format and structure, the only notable thing about the SAVEPLUTO Smart
+                  Contract is the
+                  fact that it applies a 10% Transaction Tax. 7% goes to holders and 3% goes to LP
+                </p>
+              </div>
+            </div>
+            <div data-aos="fade-right" class="cases__item">
+              <img src="img/cases-icon-6.png" alt="" class="cases__item-icon" />
+              <div class="cases__item-content">
+                <div class="cases__item-title">Liquidity Pool</div>
+                <p class="cases__item-text">
+                  The SAVEPLUTO Liquidity Pool is composed of BNB and SAVEPLUTO tokens on
+                  PancakeSwap (www.pancakeswap.finance). Additional liquidity is automatically added to the Liquidity
+                  Pool by way of the
+                  SAVEPLUTO Transaction Tax,
+                </p>
+              </div>
+            </div>
+            <div data-aos="fade-left" data-aos-delay="200" class="cases__item">
+              <img src="img/cases-icon-10.png" alt="" class="cases__item-icon" />
+              <div class="cases__item-content">
+                <div class="cases__item-title">Liquidity Provider Time Lock</div>
+                <p class="cases__item-text">
+                  To address the fears of a potential "rug pull" on the part of the Liquidity Provider, a three month
+                  time lock has been
+                  imposed on the Liquidity Provider account.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <img src="img/cases-bg.png" class="cases__bg" alt="" />
+      <img src="img/cases-imgs.png" class="cases__elements" alt="" />
+    </section>
+
+
+    <section class="section map" id="map">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="
+	                  section-header
+	                  section-header--animated
+	                  section-header--center
+	                  section-header--medium-margin
+	                ">
+              <h4>Our way</h4>
+              <h2>Road Map</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 offset-lg-4 col-sm-8 offset-sm-4">
+            <div class="road">
+              <div class="road__item road__item-active">
+                <div class="road__item-metka"></div>
+                <div class="road__item-content">
+                  <div class="road__item-title">Quarter 2, 2021</div>
+                  <p>
+                    New Website and branding <br>
+                    SPACEdrop announced <br>
+                    Release Whitepaper <br>
+                    Release Roadmap <br>
+                    Social media channels updated <br>
+                    Apply for BSCscan logo & social profiles <br>
+                    Listing on Coingecko <br>
+                    Listing on CoinMarketCap <br>
+                    Binance Official Charity Donation <br>
+                    Compeition Announcments<br>
+                    Pluto Scam Detector<br>
+                  </p>
+                </div>
+              </div>
+
+              <div class="road__item">
+                <div class="road__item-metka"></div>
+                <div class="road__item-content">
+                  <div class="road__item-title">Quarter 3, 2021</div>
+                  <p>
+                    Audit application <br>
+                    Listing on Delta <br>
+                    Listing on Blockfolio <br>
+                    Listing on Coinhunt and Coinsniper <br>
+                    GoFundMe first donation towards saving dogs <br>
+                    GoFundMe first donation towards mental health <br>
+                    Approaching and creating relations with large crypto youtubers and influencers <br>
+                    Sign up with a top Marketing Agency <br>
+                    SAVEPLUTO merchandise Q3 <br>
+                    Listing on different platforms for trading targetting but not limited to (Gate, MXC,
+                    KuCoin, Whitebit, Biki) <br>
+                    PlutoSwap <br>
+                  </p>
+                </div>
+              </div>
+
+              <div class="road__item">
+                <div class="road__item-metka"></div>
+                <div class="road__item-content">
+                  <div class="road__item-title">Quarter 4, 2021</div>
+                  <p>
+                    Widen the shelter donations & organizations <br>
+                    NFT Farming <br>
+                    PlutoGaming <br>
+                    PlutoLottery <br>
+                    Approach Binance, Huobi and Crypto.com for Listing <br>
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <img src="img/road_map.png" data-jarallax-element="-40" alt="" class="map__title-bg" />
+      </div>
+    </section>
+
+
+   
+  <!--  <iframe name="Framename" src="https://dex.guru/token/0x382a7a98de520cc08522b3d03cfdfe1926c3f65f-bsc" width=100% height="500" frameborder="0" scrolling="auto"
+      class="frame-area">
+    </iframe> -->
+
+    <!--  <section class="data">
+        <div class="container data__container">
+          <div class="row">
+            <div class="col">
+              <img src="img/data-bg.png" class="data__img" alt="" />
+              <div class="counter__item counter__item-1">
+                <div class="counter__item-title">
+                 BTC
+                </div>
+                <div
+                  class="
+                    counter counter__item-value counter__item-value--blue
+                    numscroller
+                  "
+                  id="btc"
+                >
+                  0.052646
+                </div>
+              </div>
+              <div class="counter__item counter__item-2">
+                <div class="counter__item-title">BNB</div>
+                <div
+                id="bnb"
+                  class="counter counter__item-value counter__item-value--pink"
+                >
+                  5.658
+                </div>
+              </div>
+              <div class="counter__item counter__item-3">
+                <div class="counter__item-title">ETH</div>
+                <div
+                id="eth"
+                  class="counter counter__item-value counter__item-value--green"
+                >
+                  20.324
+                </div>
+              </div>
+              <div class="counter__item counter__item-4">
+                <div class="counter__item-title">Total Maketcap</div>
+                <div
+                  class="
+                    counter
+                    counter__item-value
+                    counter__item-value--percent
+                    counter__item-value--purpure
+                  "
+                >
+                  65
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <img src="img/data-bg-space.png" class="data__bg" alt="" />
+      </section> -->
+
+    <!--  <section class="section section--no-pad-bot facts">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <div
+                class="
+                  section-header
+                  section-header--animated
+                  section-header--center
+                  section-header--small-margin
+                "
+              >
+                <h4>Some facts</h4>
+                <h2>Smart Contract API</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="facts__line">
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                <div class="facts__line-list">
+                  <div class="facts__item">
+                    <img
+                      src="img/bitcon-round.png"
+                      class="facts__icon"
+                      alt=""
+                    />
+                    <div class="facts__title">Bitcoin + RSK</div>
+                  </div>
+                  <div class="facts__item">
+                    <img
+                      src="img/stellar-round.png"
+                      class="facts__icon"
+                      alt=""
+                    />
+                    <div class="facts__title">Stellar Lumens</div>
+                  </div>
+                  <div class="facts__item">
+                    <img
+                      src="img/counterparty-round.png"
+                      class="facts__icon"
+                      alt=""
+                    />
+                    <div class="facts__title">Counterparty</div>
+                  </div>
+                  <div class="facts__item">
+                    <img src="img/lisk.png" class="facts__icon" alt="" />
+                    <div class="facts__title">Lisk</div>
+                  </div>
+                  <div class="facts__item">
+                    <img src="img/eos-round.png" class="facts__icon" alt="" />
+                    <div class="facts__title">EOS</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <img src="img/facts-bg.png" class="facts__bg" alt="" />
+        </div>
+      </section> -->
+
+    <!--   <section class="section token" id="token">
+        <div class="container">
+          <div class="row">
+            <img src="img/token-img.png" class="token__img" alt="" />
+            <div
+              data-aos="fade-left"
+              class="col-lg-6 offset-lg-6 token__animated-content"
+            >
+              <div
+                class="
+                  section-header
+                  section-header--tire
+                  section-header--small-margin
+                "
+              >
+                <h4>About token</h4>
+                <h2>Token Sale</h2>
+              </div>
+
+              <ul class="token__info-list">
+                <li><span>Token name:</span> Cryptoland Token</li>
+                <li><span>Ticker Symbol:</span> Cryptoland</li>
+                <li>
+                  <span>Currency Symbol Image :</span> Currency Symbol Image
+                </li>
+                <li>
+                  <span>Starting Price Pre-ICO:</span> Cryptoland for USD 0.08
+                </li>
+                <li>
+                  <span>Maximum Eroiy produced:</span> Cryptoland for USD 0.12
+                </li>
+                <li>
+                  <span>Maximum Eroiy for Sale:</span> 2 billion (technical
+                  limit)
+                </li>
+                <li><span>Fundraising Goal:</span> USD 48 million</li>
+                <li><span>Minimum Purchase:</span> 100 Cryptoland</li>
+              </ul>
+
+              <div class="token__desc">
+                <div class="token__desc-title">General description</div>
+                <div class="token__desc-text">
+                  <p>
+                    Cryptoland will be released on the basis of Ethereum
+                    platform and fully comply with ERC20* standard.
+                  </p>
+                  <p>
+                    Support of this standard guarantees the compatibility of the
+                    token with third-party services (wallets, exchanges,
+                    listings, etc.), and provides easy integration.
+                  </p>
+                </div>
+              </div>
+
+              <a href="#" class="btn btn--small btn--uppercase btn--orange"
+                ><span>Buy Token</span></a
+              >
+            </div>
+          </div>
+        </div>
+      </section> -->
+
+    <section class="docs" id="docs">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="
+                  section-header section-header--animated
+                  seaction-header--center
+                  section-header--tire section-header--medium-margin
+                ">
+              <h4>Our files</h4>
+              <h2>Documents</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-2 col-sm-12">
+            <div style="margin-bottom: 40px;">
+              <a href="./doc/SavePluto-whitepaper.pdf" class="btn btn--medium btn--white">Whitepaper</a>
+            </div>
+          </div>
+          <div class="col-lg-9 col-sm-12">
+            <a href="./doc/SavePluto-disclaimer.pdf" class="btn btn--big btn--white">Legal Disclaimer</a>
+          </div>
+
+        </div>
+      </div>
+      <img src="img/docs-bg.png" data-jarallax-element="40" alt="" class="docs__bg" />
+    </section>
+    <div style="margin-bottom: 150px;"></div>
+
+
+
+    <!--  <section class="section faq" id="faq">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <div
+                class="
+                  section-header
+                  section-header--center
+                  section-header--medium-margin
+                "
+              >
+                <h4>FAQ</h4>
+                <h2>Frequency Asked Questions</h2>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+              <ul class="accordion">
+                <li>
+                  <a>Can American citizens take part in the crowdsale?</a>
+                  <p>
+                    JavaScript is also used in environments that aren’t
+                    web-based, such as PDF documents, site-specific browsers,
+                    and desktop widgets. Newer and faster JavaScript virtual
+                    machines (VMs) and platforms built upon them have also
+                    increased the popularity of JavaScript for server-side web
+                    applications. On the client side, JavaScript has been
+                    traditionally implemented as an interpreted language, but
+                    more recent browsers perform just-in-time compilation.
+                  </p>
+                </li>
+                <li>
+                  <a>Does the crowdsale comply with legal regulations?</a>
+                  <p>
+                    JavaScript is also used in environments that aren’t
+                    web-based, such as PDF documents, site-specific browsers,
+                    and desktop widgets. Newer and faster JavaScript virtual
+                    machines (VMs) and platforms built upon them have also
+                    increased the popularity of JavaScript for server-side web
+                    applications. On the client side, JavaScript has been
+                    traditionally implemented as an interpreted language, but
+                    more recent browsers perform just-in-time compilation.
+                  </p>
+                </li>
+                <li>
+                  <a>Can I trade SCR at an exchange?</a>
+                  <p>
+                    JavaScript is also used in environments that aren’t
+                    web-based, such as PDF documents, site-specific browsers,
+                    and desktop widgets. Newer and faster JavaScript virtual
+                    machines (VMs) and platforms built upon them have also
+                    increased the popularity of JavaScript for server-side web
+                    applications. On the client side, JavaScript has been
+                    traditionally implemented as an interpreted language, but
+                    more recent browsers perform just-in-time compilation.
+                  </p>
+                </li>
+                <li>
+                  <a
+                    >What is the difference between Coin tokens and Power
+                    tokens?</a
+                  >
+                  <p>
+                    JavaScript is also used in environments that aren’t
+                    web-based, such as PDF documents, site-specific browsers,
+                    and desktop widgets. Newer and faster JavaScript virtual
+                    machines (VMs) and platforms built upon them have also
+                    increased the popularity of JavaScript for server-side web
+                    applications. On the client side, JavaScript has been
+                    traditionally implemented as an interpreted language, but
+                    more recent browsers perform just-in-time compilation.
+                  </p>
+                </li>
+                <li>
+                  <a>Why is Cryptonet economic model sustainable?</a>
+                  <p>
+                    JavaScript is also used in environments that aren’t
+                    web-based, such as PDF documents, site-specific browsers,
+                    and desktop widgets. Newer and faster JavaScript virtual
+                    machines (VMs) and platforms built upon them have also
+                    increased the popularity of JavaScript for server-side web
+                    applications. On the client side, JavaScript has been
+                    traditionally implemented as an interpreted language, but
+                    more recent browsers perform just-in-time compilation.
+                  </p>
+                </li>
+                <li>
+                  <a>Can I mine SCR?</a>
+                  <p>
+                    JavaScript is also used in environments that aren’t
+                    web-based, such as PDF documents, site-specific browsers,
+                    and desktop widgets. Newer and faster JavaScript virtual
+                    machines (VMs) and platforms built upon them have also
+                    increased the popularity of JavaScript for server-side web
+                    applications. On the client side, JavaScript has been
+                    traditionally implemented as an interpreted language, but
+                    more recent browsers perform just-in-time compilation.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section> -->
+
+
+    <!--  <section class="news">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <div
+                class="
+                  section-header
+                  section-header--center
+                  section-header--small-margin
+                "
+              >
+                <h4>In the world</h4>
+                <h2>Latest News</h2>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="news-carousel owl-carousel">
+                <a data-aos="fade-up" href="#" class="news-carousel__item">
+                  <div class="news-carousel__item-body">
+                    <div class="news-carousel__item-subtitle">
+                      Cryptocurrency
+                    </div>
+                    <h3 class="news-carousel__item-title">
+                      New trends in UI/UX Design World Integration
+                    </h3>
+                    <p>
+                      Specially for our VIP customers the LH Crypto team
+                      representatives Alexander Smirnov and Antonis Lapos will
+                      conduct a number of personal meet-
+                    </p>
+                    <div class="news-carousel__item-data">
+                      September, 15 2017
+                    </div>
+                  </div>
+                </a>
+
+                <a
+                  data-aos="fade-up"
+                  data-aos-delay="200"
+                  href="#"
+                  class="news-carousel__item"
+                >
+                  <div class="news-carousel__item-body">
+                    <div class="news-carousel__item-subtitle">
+                      Cryptocurrency
+                    </div>
+                    <h3 class="news-carousel__item-title">
+                      New trends in UI/UX Design World Integration
+                    </h3>
+                    <p>
+                      Specially for our VIP customers the LH Crypto team
+                      representatives Alexander Smirnov and Antonis Lapos will
+                      conduct a number of personal meet-
+                    </p>
+                    <div class="news-carousel__item-data">
+                      September, 15 2017
+                    </div>
+                  </div>
+                </a>
+
+                <a
+                  data-aos="fade-up"
+                  data-aos-delay="200"
+                  href="#"
+                  class="news-carousel__item"
+                >
+                  <div class="news-carousel__item-body">
+                    <div class="news-carousel__item-subtitle">
+                      Cryptocurrency
+                    </div>
+                    <h3 class="news-carousel__item-title">
+                      New trends in UI/UX Design World Integration
+                    </h3>
+                    <p>
+                      Specially for our VIP customers the LH Crypto team
+                      representatives Alexander Smirnov and Antonis Lapos will
+                      conduct a number of personal meet-
+                    </p>
+                    <div class="news-carousel__item-data">
+                      September, 15 2017
+                    </div>
+                  </div>
+                </a>
+
+                <a href="#" class="news-carousel__item">
+                  <div class="news-carousel__item-body">
+                    <div class="news-carousel__item-subtitle">
+                      Cryptocurrency
+                    </div>
+                    <h3 class="news-carousel__item-title">
+                      New trends in UI/UX Design World Integration
+                    </h3>
+                    <p>
+                      Specially for our VIP customers the LH Crypto team
+                      representatives Alexander Smirnov and Antonis Lapos will
+                      conduct a number of personal meet-
+                    </p>
+                    <div class="news-carousel__item-data">
+                      September, 15 2017
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> 
+
+      <section class="press section">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <div
+                class="
+                  section-header
+                  section-header--center
+                  section-header--medium-margin
+                "
+              >
+                <h4>Press About us</h4>
+                <h2>Press About Cryptoland</h2>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-3 col-12 col-sm-6">
+              <a href="#" class="press__item">
+                <img src="img/press-logo-1.png" alt="" />
+              </a>
+            </div>
+            <div class="col-lg-3 col-12 col-sm-6">
+              <a href="#" class="press__item">
+                <img src="img/press-logo-2.png" alt="" />
+              </a>
+            </div>
+            <div class="col-lg-3 col-12 col-sm-6">
+              <a href="#" class="press__item">
+                <img src="img/press-logo-3.png" alt="" />
+              </a>
+            </div>
+            <div class="col-lg-3 col-12 col-sm-6">
+              <a href="#" class="press__item">
+                <img src="img/press-logo-4.png" alt="" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="partners">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <div
+                class="
+                  section-header
+                  section-header--tire
+                  section-header--medium-margin
+                "
+              >
+                <h4>Our friends</h4>
+                <h2>Partners</h2>
+              </div>
+
+              <div class="logoes">
+                <div>
+                  <img src="img/partners-logo-1.png" alt="" />
+                </div>
+                <div>
+                  <img src="img/partners-logo-2.png" alt="" />
+                </div>
+                <div>
+                  <img src="img/partners-logo-3.png" alt="" />
+                </div>
+                <div>
+                  <img src="img/partners-logo-4.png" alt="" />
+                </div>
+                <div>
+                  <img src="img/partners-logo-5.png" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+	<div style="margin-bottom: 180px;"></div> -->
+
+    <!--  <section class="section contact">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <div
+                class="
+                  section-header
+                  section-header--center
+                  section-header--medium-margin
+                "
+              >
+                <h4>Contact us</h4>
+                <h2>Get in Touch</h2>
+              </div>
+              <form action="#" class="form contact-form" id="contact-form">
+                <input
+                  type="text"
+                  name="Name"
+                  class="form__input"
+                  placeholder="Name"
+                />
+                <input
+                  type="email"
+                  name="Email"
+                  class="form__input"
+                  placeholder="Email"
+                />
+                <textarea
+                  name="Message"
+                  class="form__textarea"
+                  placeholder="Message"
+                ></textarea>
+                <button class="form__btn btn btn--uppercase btn--orange">
+                  <span>Send message</span>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <img src="img/subscribe-bg.png" class="contact-bg" alt="" />
+      </section> -->
+
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4">
+            <a href="#" class="logo">
+              <img class="logo__img" src="img/pluto.png" alt="">
+              <div class="logo__title">SAVEPLUTO</div>
+            </a>
+            <div class="copyright">© 2021, Savepluto </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="social-block">
+              <div class="social-block__title">
+                Stay connected:
+              </div>
+
+              <ul class="social-list">
+                <li class="social-list__item">
+
+                  <a href="https://twitter.com/savepluto_?s=21" class="social-list__link">
+                    <i class="fontello-icon icon-twitter">&#xf309;</i>
+                  </a>
+                </li>
+                <li class="social-list__item">
+                  <a href="https://t.me/SavePlutoOfficial" class="social-list__link">
+                    <img src="img/telegram.png" style="height: 25px; width: 30px; padding-left: 8px; padding-top: 6px;"
+                      alt="" />
+                  </a>
+                </li>
+                <li class="social-list__item">
+                  <a href="https://discord.gg/yVagGFuv" class="social-list__link">
+                    <img src="img/discord.png" style="height: 25px; width: 30px; padding-left: 8px; padding-top: 6px;"
+                      alt="" />
+                  </a>
+                </li>
+                <li class="social-list__item">
+                  <a href="https://www.reddit.com/r/SavePluto/" class="social-list__link">
+                    <img src="img/reddit.png" style="height: 25px; width: 30px; padding-left: 8px; padding-top: 6px;"
+                      alt="" />
+                  </a>
+                </li>
+                <li class="social-list__item">
+                  <a href="https://instagram.com/savepluto_official?utm_medium=copy_link" class="social-list__link">
+                    <img src="img/instagram.png" style="height: 25px; width: 30px; padding-left: 8px; padding-top: 6px;"
+                      alt="" />
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-4" id="form-sub">
+            <form action="#" class="form subscribe" id="subscribe-form">
+              <div class="form__title">Subscribe</div>
+              <div class="form__row">
+                <input type="email" name="subscribe_email" class="form__input" placeholder="Email">
+                <button style="margin-bottom:  20px;"
+                  class="form__btn btn btn--uppercase btn--orange btn--small"><span>Send</span></button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="js/jquery.min.js"></script>
+  <script>
+    window.jQuery ||
+      document.write('<script src="js/jquery-2.2.4.min.js"><\/script>');
+  </script>
+
+  <script src="js/scripts.min.js"></script>
+</body>
+
+<!-- Developed by Flybizit -->
+
+</html>
